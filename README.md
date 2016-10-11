@@ -12,7 +12,8 @@ export AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY
 export AWS_REGION=YOUR_AWS_REGION
 ```
 
-### Set environment variables for Slack
+### functions/notify-auto-scaling-event
+#### Set environment variables for Slack
 
 ```json
 $ cat ./functions/notify-auto-scaling-event/.env.json
@@ -22,7 +23,7 @@ $ cat ./functions/notify-auto-scaling-event/.env.json
 }
 ```
 
-### apex deploy
+#### apex deploy
 
 ```
 $ apex deploy --env-file ./functions/notify-auto-scaling-event/.env.json notify-auto-scaling-event
