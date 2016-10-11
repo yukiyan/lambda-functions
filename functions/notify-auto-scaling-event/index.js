@@ -26,12 +26,12 @@ exports.handle = (event, context, callback) => {
             {
               title: 'Auto scaling group',
               value: message.AutoScalingGroupName,
-              short: true,
+              short: false,
             },
             {
               title: 'Event name',
               value: eventName,
-              short: true,
+              short: false,
             },
             {
               title: 'Message',
