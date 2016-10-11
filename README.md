@@ -18,7 +18,7 @@ export AWS_REGION=YOUR_AWS_REGION
 ```json
 $ cat ./functions/notify-auto-scaling-event/.env.json
 {
-  "HOOK_URL": "https://hooks.slack.com/services/HOGE/FUGA/HOGEFUGA",
+  "SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/HOGE/FUGA/HOGEFUGA",
   "CHANNEL": "#FUGA"
 }
 ```

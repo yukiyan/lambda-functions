@@ -1,9 +1,8 @@
 console.log('Loading event');
 
 const IncomingWebhooks = require('@slack/client').IncomingWebhook;
-const hookUrl = process.env.HOOK_URL;
+const slack = new IncomingWebhooks(process.env.SLACK_WEBHOOK_URL);
 const slackChannel = process.env.CHANNEL;
-const slack = new IncomingWebhooks(hookUrl);
 
 exports.handle = (event, context, callback) => {
   const message = JSON.parse(event.Records[0].Sns.Message);
