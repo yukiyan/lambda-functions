@@ -1,9 +1,9 @@
 console.log('Loading event');
 
-const URL = require('url');
-const https = require('https');
+const IncomingWebhooks = require('@slack/client').IncomingWebhook;
 const hookUrl = process.env.HOOK_URL;
 const slackChannel = process.env.CHANNEL;
+const slack = new IncomingWebhooks(hookUrl);
 
 exports.handle = (event, context, callback) => {
   const message = JSON.parse(event.Records[0].Sns.Message);
@@ -15,7 +15,7 @@ exports.handle = (event, context, callback) => {
     const slackMessage = {
       username: 'オートスケールイベント知らせるくん',
       channel: slackChannel,
-      icon_emoji: ':speaking_head_in_silhouette:',
+      iconEmoji: ':speaking_head_in_silhouette:',
       attachments: [
         {
           fallback: 'オートスケールイベントが発生しました',
@@ -43,23 +43,7 @@ exports.handle = (event, context, callback) => {
         },
       ],
     };
-    const body = JSON.stringify(slackMessage);
-    const options = URL.parse(hookUrl);
-    options.method = 'POST';
-    options.headers = {
-      'Content-Type': 'application/json',
-      'Content-Length': Buffer.byteLength(body),
-    };
-
-    const postReq = https.request(options, (res) => {
-      const chunks = [];
-      res.setEncoding('utf8');
-      res.on('data', chunk => chunks.push(chunk));
-      return res;
-    });
-
-    postReq.write(body);
-    postReq.end();
+    slack.send(slackMessage);
     callback(null, 'success');
   } else {
     console.log('対象外のイベントなため、何もせず終了しました');
