@@ -5,5 +5,8 @@
   "timeout": 5,
   "runtime": "nodejs4.3",
   "role": "arn:aws:iam::166616333867:role/yukiyan_lambda_function",
-  "environment": {}
+  "environment": {},
+  "hooks": {
+    "build": "npm install; npm run lint"
+  }
 }

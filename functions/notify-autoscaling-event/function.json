@@ -1,7 +1,0 @@
-{
-  "name": "notify-autoscaling-event",
-  "description": "Notify auto scaling event",
-  "hooks": {
-    "build": "npm install; npm run lint"
-  }
-}
