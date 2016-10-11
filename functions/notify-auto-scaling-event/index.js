@@ -30,7 +30,7 @@ exports.handle = (event, context, callback) => {
             },
             {
               title: 'Event name',
-              value: eventName,
+              value: eventName.match(/autoscaling:(\w+)/)[1],
               short: false,
             },
             {
