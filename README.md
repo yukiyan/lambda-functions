@@ -14,7 +14,7 @@ export AWS_REGION=YOUR_AWS_REGION
 
 ### functions/notify-auto-scaling-event
 
-![screen shot](https://i.gyazo.com/a0ec1187293a285fa04464c2a0861e48.png)
+<img src="https://i.gyazo.com/a0ec1187293a285fa04464c2a0861e48.png" width="50%"/>
 
 #### Set environment variables for Slack
 
